@@ -171,35 +171,41 @@ define('util/util',[], function () {
             return str
         },
 
-        splitQuotedBy: function (txt, del) {
+
+        splitQuotedBy: function (txt, del, stripEscape) {
             var ret = [],
                 q = -1, // Within quotes?
                 str = '',
                 parts = String(txt).split(del);
+                            
+            var s = false // State change?
 
             parts.forEach(function (p) {
-
-                var s = false // State change?
 
                 if (p.indexOf("\"") > -1) {
                     q *= -1
                     s = true
                 }
+                
                 // Two quotes?
                 if (p.match(/"(.*)"/)) {
                     q *= -1
                     s = false
                 }
 
+                if(stripEscape)
+                    //p = p.replace(/^["]|["]$/g, "")
+                    p = p.replace(/["]/g, "")
+
                 if (q == 1 && s) {
-                    str = p.replace("\"", "")
+                    str = del + p
                 }
                 else if (q == -1 && s) {
-                    ret.push(str + del + p.replace("\"", ""))
+                    ret.push(str + p)
                     str = ''
                 }
                 else if (q == 1) {
-                    str += del + p
+                    str += p
                 }
                 else if (q == -1) {
                     ret.push(p)
@@ -211,9 +217,9 @@ define('util/util',[], function () {
                 var lns = str.split(del)
                 ret.push.apply(ret, lns)
             }
-
             return ret
         },
+
 
         /*makeFloat: function(str){
             if(String(str).indexOf(".") === -1)

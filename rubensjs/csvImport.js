@@ -68,16 +68,15 @@ define(['util/util'], function (util) {
             })
             
             // Add missing top left if any if all rows but the first have same number of fields
-            if (this.ret.length > 1) {
+            if (this.ret.length > 2 && false) {
             
                 var l = this.ret[1].length,
-                    pass = true;
+                    pass = false;
 
-                for(var c = 1; c < this.ret.length - 1; c++){
-                                        
-                    if(l != this.ret[c].length)
-                        pass = false
-                }
+
+                    console.log(this.ret[0].length, this.ret[1].length)
+                if(this.ret[0].length != this.ret[1].length)
+                    pass = true
                 
                 if(pass){
                     for (var c = this.ret[0].length; c < this.ret[1].length; c++) {
