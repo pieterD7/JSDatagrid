@@ -1,4 +1,4 @@
-define(['util/util'], function (util) {
+define('rubensjs/csvImport',['util/util'], function (util) {
 
 
     return {
@@ -50,7 +50,7 @@ define(['util/util'], function (util) {
 
                 var fs = util.splitQuotedBy(o, del, true)
 
-                if(typeof fs[0] == 'undefined') return
+                //if(fs.length < 2) return
 
                 my.line = []
                 var f2 = ''
@@ -68,15 +68,17 @@ define(['util/util'], function (util) {
             })
             
             // Add missing top left if any if all rows but the first have same number of fields
-            if (this.ret.length > 2 && false) {
+            if (this.ret.length > 1) {
             
                 var l = this.ret[1].length,
-                    pass = false;
+                    pass = true;
 
-
-                    console.log(this.ret[0].length, this.ret[1].length)
-                if(this.ret[0].length != this.ret[1].length)
-                    pass = true
+                for(var c = 1; c < this.ret.length - 1; c++){
+                                        
+                    if (l != this.ret[c].length 
+                        && this.ret[c].length > 0)
+                        pass = false
+                }
                 
                 if(pass){
                     for (var c = this.ret[0].length; c < this.ret[1].length; c++) {
@@ -85,7 +87,13 @@ define(['util/util'], function (util) {
                 }
             }
 
+            // Add some lines to the end
+            if (this.ret.length > 1) { 
+                this.ret.push([{index:-1, value:''}])
+                this.ret.push([{index:-1, value:''}])
+            }
+
             return this.ret;
         }
     }
-})
+});
