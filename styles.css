@@ -1,0 +1,1212 @@
+::-webkit-scrollbar {
+  display: none;
+}
+[v-cloak] {
+  display: none;
+}
+html {
+  -ms-overflow-style: none;
+  background: #a0a0a0;
+  /*background:url(bg.png);*/
+  color: #f7f7f7;
+}
+* {
+  box-sizing: border-box;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+body {
+  /*	touch-action: none;*/
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  /*letter-spacing:0.125em;*/
+  margin: 0;
+  /*	overflow:hidden;*/
+  /*	max-width:calc(100vw - 1.25em);*/
+}
+svg foreignObject div div div {
+  /*padding:0.1em 0.33em 0.1em 0.33em;*/
+}
+svg div > div:nth-child(odd) {
+  /* background:lightgray;*/
+}
+svg div > div:nth-child(even) {
+  /*background:#e0e0e0;*/
+}
+hr {
+  border: 1px solid black;
+  margin: 0 0.75em 0 0.75em;
+  position: relative;
+  top: 0.75em;
+}
+h1 {
+  font-size: 1.1em;
+  padding-left: 1em;
+  padding-top: 1.2em;
+}
+h1.unseen {
+  color: #202020;
+}
+.row h1 {
+  float: left;
+  width: 40%;
+}
+select {
+  height: 2em;
+  width: 100%;
+  background: #202020;
+  color: #f7f7f7;
+}
+:focus {
+  outline: none;
+}
+select option:checked {
+  background: #a0a0a0;
+}
+#xmlFile {
+  max-width: 150px;
+}
+input:not([type=range]):not([type=radio]) {
+  height: 2em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+input[type=number]:not(.normal) {
+  width: 100%;
+  height: 2em;
+  padding-left: 0.5em;
+}
+input[type=checkbox]:not(.normal) {
+  vertical-align: middle;
+  width: 1em;
+  height: 2.5em;
+  zoom: 1.3;
+  margin-right: 1em;
+}
+input[type=checkbox].normal {
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  zoom: 1.3;
+  margin-right: 1em;
+}
+input[type=checkbox]:checked + legend {
+  background: #202020 url(none.png);
+  cursor: pointer;
+  height: 2em;
+  width: 2em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+input[type=checkbox] + legend {
+  background: #202020 url(noneGrayed.png);
+  cursor: pointer;
+  height: 2em;
+  width: 2em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+input[type=color] {
+  margin-right: 2em;
+  cursor: pointer;
+  width: 2em;
+  border: 1px solid white;
+  padding: 0;
+  height: 2em;
+}
+input[type=color][readonly] {
+  cursor: default;
+  opacity: 0.5;
+}
+input {
+  background: #202020;
+  color: #f7f7f7;
+}
+input:not([type=file]) {
+  border: 1px solid #a9a9a9;
+}
+#modalDialogueSettings legend {
+  height: 2.5em;
+  padding-top: 0.5em;
+  margin-top: 0.8em;
+  text-align: inherit;
+}
+.bbox input,
+.chartPadding input {
+  width: 8em;
+}
+button {
+  border: none;
+  background: #202020;
+  color: white;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+textarea {
+  display: inline;
+  vertical-align: middle;
+  width: 3em;
+}
+.hide {
+  display: none;
+}
+.left {
+  float: left;
+}
+.clearLeft {
+  clear: left;
+}
+.right {
+  float: right;
+}
+.newLayer .row.h5 {
+  height: 5em;
+}
+.indent {
+  text-indent: 1em;
+}
+.h2 {
+  height: 2em;
+}
+.h3 {
+  height: 3em;
+}
+.h4 {
+  height: 4em;
+}
+.h100 {
+  height: 100%;
+}
+.w20 {
+  width: 20%;
+  float: left;
+}
+.w33 {
+  width: 33%;
+  float: left;
+}
+.w50 {
+  width: 50%;
+  float: left;
+}
+.w501 {
+  width: 50%;
+}
+.w70 {
+  width: 60%;
+  float: left;
+}
+.w80 {
+  width: 80%;
+  float: left;
+}
+.w100 {
+  width: 100%;
+}
+.colorBar {
+  height: 3.5em;
+  width: 3.5em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+}
+.heightColorPalette {
+  overflow: scroll;
+}
+.halfHeight {
+  font-size: 80%;
+}
+.highCol {
+  background: #dedede;
+}
+.highRow {
+  background: #eaeaea;
+}
+.highCol.highRow {
+  color: #e0e0e0;
+  background: #a0a0a0;
+}
+.floatingPlus {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  background: #a0a0a0;
+  border-radius: 70px;
+}
+.floatingPlus:before,
+.floatingPlus:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #f7f7f7;
+}
+.floatingPlus:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+.floatingPlus:after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
+}
+.floatingPlus {
+  cursor: pointer;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 70px;
+}
+.dataTable {
+  width: calc(98%);
+  margin: 0.5em 0 0 1em;
+  color: black;
+  background: #f7f7f7;
+  user-select: none;
+}
+.dataTable {
+  border-bottom-right-radius: 4px;
+}
+.dataTable,
+.dataTableRow:nth-child(1) {
+  border-top-left-radius: 4px;
+}
+.dataTableFieldRowIndex {
+  min-width: 3em;
+  max-width: 3em;
+  height: 2em;
+  max-height: 2em;
+  background: #eaeaea;
+}
+.dataTableFieldContent {
+  min-width: 8em;
+  max-width: 8em;
+}
+.dataTableRow {
+  height: 1.5em;
+  max-height: 1.5em;
+  overflow: hidden;
+}
+.dataTableRow:not(:nth-child(2)) {
+  border-top: 1px solid #a0a0a0;
+}
+.dataTableRow:first-child {
+  height: 2em;
+  max-height: 2em;
+  min-height: 2em;
+  border-top: 2px solid #f7f7f7;
+  border-bottom: 4px solid #f7f7f7;
+  background: #dedede;
+}
+.dataTableRow:first-child .dataTableField {
+  height: 2em;
+  max-height: 2em;
+  min-height: 2em;
+  cursor: pointer;
+  border-left: 1px solid #f7f7f7;
+  border-right: 1px solid #f7f7f7;
+  text-align: center;
+}
+.dataTableRow:last-child {
+  border-bottom: 1px solid #a0a0a0;
+}
+.dataTableField {
+  float: left;
+  border-left: 1px solid #a0a0a0;
+  padding: 0 8px 0 8px;
+  max-height: 1.5em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.row1 {
+  height: 1.5em;
+}
+.row,
+.row6,
+.row7 {
+  padding: 1em;
+}
+.row4 {
+  height: 5.5em;
+}
+.row5 {
+  float: left;
+  width: 100%;
+}
+.row3 > div {
+  float: left;
+  width: 14%;
+}
+@media screen and (max-width: 480px) {
+  .row3 > div {
+    width: 20%;
+  }
+}
+.row > div:nth-child(odd) {
+  float: left;
+  width: 40%;
+}
+.row > div:nth-child(even) {
+  float: left;
+  width: 60%;
+}
+.row6 > div:nth-child(odd) {
+  float: left;
+  width: 25%;
+}
+.row6 > div:nth-child(even) {
+  float: left;
+  width: 75%;
+}
+.row7 > div:nth-child(odd) {
+  float: left;
+  width: 15%;
+}
+.row7 > div:nth-child(even) {
+  float: left;
+  width: 85%;
+}
+.row2 > div {
+  float: left;
+  width: 100%;
+}
+.newLayer .row {
+  height: 3.5em;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-center input {
+  width: 33%;
+}
+.clearLeft {
+  clear: left;
+}
+.paddingRight {
+  padding-right: 4em;
+}
+.marginTop {
+  margin-top: 0.75em;
+}
+.marginTop2 {
+  margin-top: 2em;
+}
+.marginLeft input {
+  max-width: 100%;
+}
+.marginLeft2 legend,
+.marginLeft2 > div {
+  float: left;
+  width: 33%;
+  max-width: 33%;
+}
+.marginLeft2a legend,
+.marginLeft2a > div {
+  float: left;
+  width: 33%;
+  max-width: 33%;
+}
+.marginLeft250 legend {
+  float: left;
+  width: 50%;
+  max-width: 50%;
+}
+.marginLeft2 input,
+.marginLeft3 input,
+.marginLeft2 select,
+.marginLeft2a input,
+.marginLeft250 input {
+  max-width: 100%;
+}
+.marginLeft250 select,
+.marginLeft250 input {
+  float: left;
+  max-width: 50%;
+}
+.marginLeft6 select,
+.marginLeft6 input {
+  float: left;
+  max-width: 33%;
+}
+.marginLeft6 legend,
+.marginLeft6 > div {
+  float: left;
+  width: 33%;
+  max-width: 33%;
+}
+.marginLeft3 legend:nth-child(odd),
+.marginLeft3 div > div > div:nth-child(1) {
+  float: left;
+  width: 66%;
+}
+.marginLeft3 > div {
+  clear: left;
+}
+.marginLeft3 legend:nth-child(even),
+.marginLeft3 > div > div > div:nth-child(2) {
+  float: left;
+  width: 33%;
+}
+.halfRow {
+  clear: left;
+}
+.halfRow > legend,
+.halfRow > div {
+  float: left;
+  height: 1em;
+}
+.marginRight {
+  margin-right: 1em;
+}
+.marginRight2 {
+  margin-right: 2em;
+}
+.mapLayers {
+  padding-top: 0;
+  padding-bottom: 2em;
+}
+.layer {
+  width: 100%;
+  height: 2em;
+}
+.layer > div {
+  padding-top: 2em;
+}
+.layerText {
+  font-style: italic;
+  float: left;
+  margin-top: -0.25em;
+}
+.layerColor {
+  clear: left;
+  float: left;
+  width: 1em;
+  height: 6px;
+  margin-top: 0.25em;
+  margin-right: 0.5em;
+}
+.layers {
+  display: none;
+  margin-left: 1em;
+  margin-bottom: 0;
+}
+.layers.opened {
+  display: block;
+}
+.charts {
+  display: none;
+}
+.charts.opened {
+  display: block;
+}
+.subChap {
+  margin-left: 1em;
+}
+.newLayer {
+  display: none;
+  margin-left: 1em;
+}
+/*.newLayer.opened{
+    display:block;
+}*/
+.titleBar {
+  border-top: 4px solid black;
+  padding-bottom: 1em;
+}
+.title {
+  width: 25%;
+  text-align: center;
+  float: left;
+  font-size: 0.8em;
+  color: #e0e0e0;
+}
+.line {
+  float: left;
+  width: calc(98.5%);
+}
+.lineLeft {
+  float: left;
+  width: calc(31.5%);
+}
+.lineRight {
+  float: right;
+  width: calc(31.5%);
+}
+.topArea {
+  display: none;
+  height: 2em;
+  color: #e0e0e0;
+}
+.login {
+  font-size: 0.8em;
+  text-align: right;
+  margin-right: 1em;
+  float: right;
+}
+.status {
+  width: 50%;
+  font-size: 0.8em;
+  text-indent: 1em;
+  float: left;
+}
+.fullHeight {
+  height: 100vh;
+}
+.padding {
+  padding: 1em;
+}
+.padding2 {
+  padding: 0 1em 0 1em;
+}
+.padding3 {
+  padding: 1em 0 1em;
+}
+.borderRadius {
+  border-radius: 4px;
+}
+.margin {
+  margin: 0 0.5em 0.5em 0.5em;
+}
+.marginBottom {
+  margin: 0.25em 0.25em 0.5em 1.75em;
+}
+.buttonBar {
+  background: #202020;
+  border-radius: 4px;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.btn {
+  height: 5em;
+  width: 5em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0 0.5em 0.5em 0.5em;
+}
+.btn2 {
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.verySmallBtn {
+  height: 2em;
+  width: 2em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.smallBtn {
+  height: 2.5em;
+  width: 2.5em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0 0.5em 0.5em 0.5em;
+}
+.smallBtn2 {
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.exportBtn {
+  background: #f7f7f7;
+  color: black;
+  padding: 1em;
+  margin: 1em;
+  width: 5em;
+  border-radius: 8px;
+}
+.btnWorld {
+  background-size: 100% 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0 0.5em 0.5em 0.5em;
+}
+.halfBtn {
+  height: 5em;
+  width: 2.5em;
+  background-size: 50% 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.btnArrowLeft {
+  background-repeat: no-repeat;
+  background: url(sprite-300x250.svg) -150px -200px;
+  padding: 0;
+  height: 50px;
+  width: 25px;
+}
+.btnCanvas {
+  background: url(sprite-300x250.svg) -50px -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnLabel {
+  background: url(sprite-300x250.svg) -100px -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnValues {
+  background: url(sprite-300x250.svg) -150px -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnFlag {
+  background: url(sprite-300x250.svg) -200px -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnPadding {
+  background: url(sprite-300x250.svg) -250px -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnTableExport {
+  background: url(sprite-300x250.svg) -250px -200px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnNewLayer {
+  background: url(sprite-300x250.svg) -200px 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnNewMap {
+  background: url(sprite-300x250.svg) -150px 0px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnLayers {
+  background: url(sprite-300x250.svg) -250px 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnBbox {
+  background: url(sprite-300x250.svg) -100px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnLineGraphCurved {
+  height: 5em;
+  width: 5em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0 0.5em 0.5em 0.5em;
+}
+.btnChartSpot {
+  background: url(sprite-300x250.svg) 0 -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartPie3 {
+  background: url(sprite-300x250.svg) -200px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnLineGraph {
+  background: url(sprite-300x250.svg) 0 -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartColumns {
+  background: url(sprite-300x250.svg) 0 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartStackedColumns {
+  background: url(sprite-300x250.svg) -50px 0px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartPie {
+  background: url(sprite-300x250.svg) -100px 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartPie2 {
+  background: url(sprite-300x250.svg) -150px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartBar {
+  background: url(sprite-300x250.svg) -50px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartStackedColumns {
+  background: url(sprite-300x250.svg) -50px 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartStackedBar {
+  background: url(sprite-300x250.svg) -100px -100px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnChartBarCompare {
+  background: url(sprite-300x250.svg) -50px -100px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 1em;
+  zoom: 1;
+}
+.btnTableExport50 {
+  background: url(sprite-300x250.svg) -250px -200px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartSpot50 {
+  background: url(sprite-300x250.svg) 0 -150px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartColumns50 {
+  background: url(sprite-300x250.svg) 0 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartStackedColumns50 {
+  background: url(sprite-300x250.svg) -50px 0px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartPie350 {
+  background: url(sprite-300x250.svg) -200px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartBarCompare50 {
+  background: url(sprite-300x250.svg) -50px -100px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartBar50 {
+  background: url(sprite-300x250.svg) -50px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartStackedBar50 {
+  background: url(sprite-300x250.svg) -100px -100px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartLine50 {
+  background: url(sprite-300x250.svg) 0 -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartPie50 {
+  background: url(sprite-300x250.svg) -100px 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartPie250 {
+  background: url(sprite-300x250.svg) -150px -50px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnChartSoccer50 {
+  background: url(sprite-300x250.svg) -100px 0;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnDataTable {
+  background: url(sprite-300x250.svg) -50px -200px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnHamburger {
+  background: url(sprite-300x250.svg) -200px -200px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnSettings {
+  background: url(sprite-300x250.svg) 0 -200px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnExport {
+  background: url(sprite-300x250.svg) -100px -200px;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  margin: 0.25em;
+  zoom: 0.75;
+}
+.btnColorNone {
+  background: #202020 url(none.svg);
+  height: 2em;
+  width: 2em;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fontSmall {
+  font-size: 85%;
+}
+.moveUp {
+  position: relative;
+  top: -1.5em;
+}
+.toLower {
+  position: relative;
+  top: 1em;
+}
+.toLowerFontBack {
+  position: fixed;
+}
+.menus,
+.modaldialogue > div:not(.rightbar) {
+  font-size: 0.8em;
+  height: 100%;
+  overflow: auto;
+  background: #202020;
+}
+.menuItem {
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+.menuItem > div {
+  width: calc(98.6%);
+}
+.menuItem:last-child,
+.modaldialogue > div > div:last-child {
+  margin-bottom: 15em;
+}
+.chapter {
+  display: none;
+  overflow: hidden;
+  padding: 1em;
+  margin: 0 0.5em 0.5em 0.5em;
+}
+.grayed {
+  opacity: 0.5;
+}
+.opacity {
+  opacity: 0.9;
+}
+.pointer {
+  cursor: pointer;
+}
+.opened {
+  display: block;
+}
+.closed {
+  display: none;
+}
+.disabled input,
+.disabled select {
+  pointer-events: none;
+  background: lightgray;
+}
+.rightbar {
+  height: 100%;
+  width: 1.4em;
+  float: right;
+}
+.leftbar {
+  font-size: 1.2em;
+  height: 100%;
+  width: 1.4em;
+  float: left;
+}
+.padingTop0 {
+  padding: 0 4px 4px 4px;
+}
+.margin0 {
+  margin: 0;
+}
+.margin15 {
+  margin-left: 1.5em;
+}
+.modaldialogue {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 475px;
+  max-width: 100%;
+  z-index: 99999;
+  background-image: url(bg-sidebar.png);
+}
+#pasteAreaGeo,
+#pasteAreaCSV {
+  padding-left: 0.5em;
+  margin-bottom: 1em;
+  background: #e0e0e0;
+  color: black;
+}
+#pasteAreaGeo:focus,
+#pasteAreaCSV:focus {
+  border: 10px solid #f7f7f7;
+  outline: none;
+}
+#pasteAreaGeo:focus > p:before,
+#pasteAreaCSV:focus > p:after {
+  content: '';
+}
+#pasteAreaGeo > p:before {
+  content: 'Paste GeoJSON';
+}
+#pasteAreaCSV > p:after {
+  content: ' Paste columns & rows';
+}
+#pasteAreaCSV > p {
+  margin: 4px;
+}
+#loader,
+#errorBox {
+  position: fixed;
+  text-align: center;
+  background: #a0a0a0;
+  right: 0;
+  height: 5em;
+  width: 100%;
+  opacity: 0.9;
+  padding: 1em;
+}
+#loader {
+  top: 0;
+}
+#errorBox {
+  bottom: 0;
+  cursor: pointer;
+  background: white;
+  color: red;
+  border: 1px solid red;
+  height: 3em;
+  text-align: left;
+  z-index: 9999;
+}
+#chart1 {
+  width: 100%;
+  max-width: calc(100% - 1.4em);
+  /*max-width:1980px;*/
+  height: calc(100vh);
+  /*max-height: 960px;   */
+  max-height: 45em;
+  display: flex;
+  position: relative;
+  left: 1.4em;
+  z-index: 0;
+}
+@media screen and (min-resolution: 200dpi) {
+  #chart1 {
+    max-height: 1980px;
+  }
+}
+#charts canvas {
+  display: none;
+}
+#valuebox {
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  left: 1.5em;
+  width: 15em;
+  height: 1.5em;
+  background: inherit;
+  color: #a0a0a0;
+  border: 1px solid #a0a0a0;
+}
+#marker1 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #f7f7f7;
+  margin-bottom: 1em;
+}
+.hasMarker {
+  background: white;
+}
+#sidebar {
+  opacity: 0.95;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #404040;
+  background-image: url(bg-sidebar.png);
+  width: 1.5em;
+  max-width: 100vw;
+  font-weight: bold;
+  z-index: 1;
+  height: 100vh;
+}
+.rightbar {
+  cursor: pointer;
+  max-width: 1.4em;
+  padding: 0px 4px 4px 4px;
+}
+.leftbar {
+  cursor: pointer;
+  max-width: 100%;
+  padding: 0px 4px 4px 7px;
+}
+#sidebar > div:not(.menus) > div:not(.leftbar):not(.rightbar):not(.menuItem) {
+  background: rgba(32, 32, 32, 0.99);
+}
+#modalDialogueHamburger .left,
+#modalDialogueExport .left,
+#modalDialogueSettings .left {
+  width: calc(100% - 1.4em - 8px);
+}
+#sidebar:not(.opened) > .rightbar:before {
+  content: '#';
+}
+#sidebar .rightbar:before,
+#modalDialogueExport .rightbar:before,
+#modalDialogueSettings .rightbar:before {
+  content: 'x';
+}
+/* Transitions */
+#loader.closedAnimate {
+  -webkit-transition: margin-top 1s ease-in-out;
+  -moz-transition: margin-top 1s ease-in-out;
+  -o-transition: margin-top 1s ease-in-out;
+  transition: margin-top 1s ease-in-out;
+  margin-top: -5em;
+}
+#sidebar.opened {
+  z-index: 10;
+  -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+  width: 470px;
+}
+/*#sidebar:not(.opened){
+    z-index:10;
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+
+    width:2em;
+}*/

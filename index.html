@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet" />
+
+    <link rel="stylesheet" href='styles.css' type='text/css' />
+    <script src="vue.min.js"></script>
+    <script type='text/javascript' data-main="dataTable" src="require.js"></script>
+</head>
+<body>
+    <p style="margin-left:0.5em;">@Author : pieter@nr8.nl.</p>
+    <div id='datatable' v-bind:class="{opened: true}">
+        <div>
+            <div v-if="rows2.length > 0" class='dataTable'>
+                <div v-for="(row, index) in rows2" class='dataTableRow'>
+                    <div class='dataTableField dataTableFieldRowIndex'>
+                        <div v-if="index > 0" v-bind:row="index">
+                            {{ index }}
+                        </div>
+                        <div v-else v-on:click="toggleSelection">&nbsp;</div>
+                    </div>
+                    <div v-for="(prop, col) in row"
+                         v-bind:origvalue="prop.origValue"
+                         v-bind:col="col+1"
+                         v-bind:row="index"
+                         class='dataTableField dataTableFieldContent'
+                         v-bind:class="{'text-right': prop.numeric == true}">
+                        {{ prop.value && !prop.value.match(/^\s*$/) ? prop.value : '&nbsp;'}}
+                    </div>
+                </div>
+                <div v-if="rows.length > 999">
+                    <div class="dataTableField" data-win-res="{textContent:'andMore'}">
+
+                    </div>
+                </div>
+            </div>
+            <div v-if="rows2.length == 1" style="text-align: center;width: 100%;">
+                <br/>Paste your data
+            </div>
+            <!--
+                <div v-if="canAddTo" class='floatingPlus' v-on:click="addDataTableRow"></div>
+                -->
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    function readCSVData(value){
+
+            var delimiter = "\t",
+                swapColsRows = false,
+                my = this
+
+            requirejs(["rubensjs/csvImport"], function (CSV) {
+
+                var val = value
+                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
+                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
+                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
+                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
+                            .replace(new RegExp("\n\n", "g"), "\n")
+
+                var data = CSV.parse(val, delimiter) || [],
+                    tbl = [],
+                    maxCols = 0,
+                    numericCols = [];
+
+                if (swapColsRows) {
+                    data = CSV.transpose(data)
+                }
+
+                data.forEach(function (o) {
+                    var row = []
+
+                    o.forEach(function (oo) {
+                        if (typeof oo.value !== 'undefined')
+                            row.push({ value: oo.value, origValue: oo.value, index: oo.index, numeric: oo.numeric })
+                    })
+
+                    if (o.length > maxCols)
+                        maxCols = o.length
+
+                    tbl.push(row)
+                })
+
+                var rows = 0
+
+                var r = //.getBoundingClientRect()
+
+                rows = 10//parseInt(r.height / 12 / 2)
+                dataTable.nVisibleRows = rows                
+
+                dataTable.reset()
+                dataTable.nCols = maxCols
+                dataTable.addFirstRow(maxCols)
+                dataTable.addRows(tbl)
+                dataTable.showTable()
+
+                Vue.nextTick(function () {
+
+                    dataTable.markColumns()
+                    if (!dataTable.hasHandlers) {
+                        dataTable.initFirstRowHandlers()
+                        dataTable.initFirstColHandlers()
+                        dataTable.initSwipeHandler()
+                        dataTable.hasHandlers = true
+                    }
+                    else {
+                        dataTable.initFirstColHandlers()
+                    }
+
+                })
+
+            })
+    }
+
+    document.querySelector("body")
+    .addEventListener('paste', function (event) {
+
+        var evntData = event.clipboardData.getData('text/plain') ||
+                        event.clipboardData.getData('text')
+
+
+        var value = evntData.replace(/\r/g, '\n');
+
+        readCSVData(value)
+
+        event.stopPropagation()
+        event.preventDefault()
+        return false
+    })
+</script>
+</html>
