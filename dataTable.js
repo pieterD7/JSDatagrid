@@ -951,6 +951,9 @@ var dataTable = new Vue({
 
                         if(t1 == 0 || t > t1 + 200){
                             if(event.wheelDeltaY == 0){
+
+                                if(Math.abs(event.wheelDeltaX) < 50) return
+
                                 if(event.wheelDeltaX > 0){
                                     if (this.leftCol > 1)
                                         this.leftCol -= 1
