@@ -289,6 +289,8 @@ var dataTable = new Vue({
 
             this.markColumns()
 
+            this.modeTableChart = false
+
             this.startRow = 1
             this.leftCol = 1
             this.selectedColumns = []
@@ -936,7 +938,36 @@ var dataTable = new Vue({
 
             requirejs(["external/hammer.min"], (H) => {
 
-                var mngr = new H(this.$el, [[{ direction: Hammer.DIRECTION_HORIZONTAL }]])
+                var mngr = new H(this.$el, [[{ direction: Hammer.DIRECTION_HORIZONTAL }]]),
+                    t1 = 0;
+
+                // This is for horizontal double finger scroll on trackpad
+                this.$el.addEventListener('wheel', (event) => 
+                { 
+
+                    if(event.deltaY == 0){
+                        
+                        var t = event.timeStamp
+
+                        if(t1 == 0 || t > t1 + 200){
+                            if(event.wheelDeltaY == 0){
+                                if(event.wheelDeltaX > 0){
+                                    if (this.leftCol > 1)
+                                        this.leftCol -= 1
+                                    else
+                                        this.leftCol = 1
+                                }
+                                else{
+                                    if (this.leftCol < this.nCols + 1)
+                                        this.leftCol += 1
+                                }
+                            }
+                            this.setVisibleColumns()
+                            t1 = t
+                        }
+                    }
+
+                })
 
                 mngr.on("swipe", (event) => {
 
@@ -961,8 +992,7 @@ var dataTable = new Vue({
             })
 
             // Scroll mouse and mousepad
-            document.querySelector("#" + this.$el.id)
-            .addEventListener('mousewheel', (event) => {
+            this.$el.addEventListener('wheel', (event) => {
 
                 if (!this.modeTableChart) {
                     if (event.shiftKey) {
