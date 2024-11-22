@@ -178,52 +178,67 @@ define('util/util',[], function () {
             return str
         },
 
-
         splitQuotedBy: function (txt, del, stripEscape) {
             var ret = [],
-                q = -1, // Within quotes?
-                str = '',
-                parts = String(txt).split(del);
+                str = "",
+                parts = [],
+            
+                startsWithNQuotes = function(str, max){
+                    var n = 0
+                    for(var nn = 0; nn < str.length; nn++){
+                        if(str.charAt(nn) == '"')
+                            n++
+                        else if(str.charAt(nn) != '"')
+                            break;
+                    }
+                    return Math.min(max,n);
+                }
+
+            if(typeof txt == 'string')
+                parts = txt.split(del);
+            else return [txt]
+        
+            // Quit on empty line
+            if( typeof txt == 'string' && ! txt.match(/[^\t][^\n]/))
+                return []
                             
-            var s = false // State change?
-
+            var s = [];
+        
             parts.forEach(function (p) {
-
-                if (p.indexOf("\"") > -1) {
-                    q *= -1
-                    s = true
+            
+                for(var n = 0; n < p.length; n++){
+                    if(s.length > 0 && startsWithNQuotes(p.substr(n), s.length) == s.length){
+                        n += s.length - 1
+                        s.pop()
+                    }
+                    else if(startsWithNQuotes(p.substr(n), s.length + 1) == s.length + 1){
+                        n += s.length
+                        s.push('')
+                    }
                 }
-                
-                // Two quotes?
-                if (p.match(/"(.*)"/)) {
-                    q *= -1
-                    s = false
+        
+                // Add part to previous or push part
+                if (s.length > 0 ) {
+                    str += p + del
                 }
-
-                if(stripEscape)
-                    //p = p.replace(/^["]|["]$/g, "")
-                    p = p.replace(/["]/g, "")
-
-                if (q == 1 && s) {
-                    str = del + p
-                }
-                else if (q == -1 && s) {
-                    ret.push(str + p)
+                else{
+                    str += p + del
+                    if(stripEscape){
+                        str = str.replace(/["](\w)/g, "$1")
+                        str = str.replace(/(\w)["]/g, "$1")
+                        str = str.replace(/["]["]/g, '"')
+                    }
+                    ret.push(str)
                     str = ''
                 }
-                else if (q == 1) {
-                    str += p
-                }
-                else if (q == -1) {
-                    ret.push(p)
-                }
             })
-
+        
             // We could get here if found only one quote
             if (str != '') {
                 var lns = str.split(del)
                 ret.push.apply(ret, lns)
             }
+        
             return ret
         },
 

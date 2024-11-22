@@ -10,7 +10,6 @@
     <script type='text/javascript' data-main="dataTable" src="require.js"></script>
 </head>
 <body>
-    <p style="margin-left:0.5em;">@Author : pieter@nr8.nl.</p>
     <div id='datatable' v-bind:class="{opened: true}">
         <div>
             <div v-if="rows2.length > 0" class='dataTable'>
@@ -56,11 +55,6 @@
             requirejs(["rubensjs/csvImport"], function (CSV) {
 
                 var val = value
-                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
-                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
-                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
-                            .replace(new RegExp("\n" + delimiter + "*\n" + delimiter + "*\n" + delimiter + "*\n", "g"), "\n\n")
-                            .replace(new RegExp("\n\n", "g"), "\n")
 
                 var data = CSV.parse(val, delimiter) || [],
                     tbl = [],
