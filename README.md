@@ -1,5 +1,7 @@
 # JSDatagrid
-Copy paste tabular data and fiddle with F12
+Copy paste tabular data and fiddle with F12:
+
+https://pieterd7.github.io/JSDatagrid/
 
 At the console you can do something like this :
 
